@@ -7,7 +7,7 @@ from fastapi.security import HTTPBearer
 # from app.db.database import create_model
 from app.core.config import settings
 from app.api.endpoints.tasks import router as task_router
-from app.db.database import create_models, delete_models, engine
+from app.db.database import create_models, delete_models
 from app.db.models import Base
 
 

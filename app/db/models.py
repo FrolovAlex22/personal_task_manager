@@ -36,10 +36,10 @@ class User(Base):
     email: Mapped[str] = mapped_column(unique=True, index=True, nullable=False)
     hash_password: Mapped[str] = mapped_column(String(70), nullable=False)
 
-    tasks: Mapped[Optional[list["Task"]]] = relationship(
-        back_populates="members",
-        secondary="user_task",
-    )
+    # tasks: Mapped[Optional[list["Task"]]] = relationship(
+    #     back_populates="members",
+    #     secondary="user_task",
+    # )
 
 
 class Task(Base):
@@ -48,27 +48,27 @@ class Task(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[str] = mapped_column(String, index=True)
     description: Mapped[str] = mapped_column(String, index=True)
-    completed: Mapped[bool] = mapped_column(default=False)
-    profession: Mapped[StatusTaskEnum] = mapped_column(
-        default=StatusTaskEnum.WAITING
-    )
-    members: Mapped[list] = mapped_column(default=[])
-    owner_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
+#     completed: Mapped[bool] = mapped_column(default=False)
+#     profession: Mapped[StatusTaskEnum] = mapped_column(
+#         default=StatusTaskEnum.WAITING
+#     )
+#     members: Mapped[list] = mapped_column(default=[])
+#     owner_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
 
-    members: Mapped[list["User"]] = relationship(
-        back_populates="tasks",
-        secondary="user_task",
-    )
+#     members: Mapped[list["User"]] = relationship(
+#         back_populates="tasks",
+#         secondary="user_task",
+#     )
 
 
-class UserTask(Base):
-    __tablename__ = "user_task"
+# class UserTask(Base):
+#     __tablename__ = "user_task"
 
-    user_id: Mapped[int] = mapped_column(
-        ForeignKey("user.id", ondelete="CASCADE"), primary_key=True
-    )
-    task_id: Mapped[int] = mapped_column(
-        ForeignKey("task.id", ondelete="CASCADE"), primary_key=True
-    )
+#     user_id: Mapped[int] = mapped_column(
+#         ForeignKey("user.id", ondelete="CASCADE"), primary_key=True
+#     )
+#     task_id: Mapped[int] = mapped_column(
+#         ForeignKey("task.id", ondelete="CASCADE"), primary_key=True
+#     )
 
-    comment: Mapped[Optional[str]]
+#     comment: Mapped[Optional[str]]
