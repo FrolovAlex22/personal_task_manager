@@ -33,7 +33,7 @@ app.include_router(task_router)
 if __name__ == "__main__":
     uvicorn.run(
         "main:app",
-        host=settings.project_host,
-        port=settings.project_port,
+        host=settings.MAIN.HOST,
+        port=settings.MAIN.PORT,
         reload=True,
     )

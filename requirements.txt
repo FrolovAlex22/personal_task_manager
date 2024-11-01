@@ -5,3 +5,5 @@ uvicorn
 python-dotenv
 pydantic_settings
 orjson
+jwt
+passlib
