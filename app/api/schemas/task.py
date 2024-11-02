@@ -12,6 +12,12 @@ class TaskUpdate(BaseModel):
     # completed: bool
 
 
+class TaskCompleteStatus(BaseModel):
+    # title: str
+    # description: str
+    completed: bool
+
+
 class TaskDelete(BaseModel):
     title: str
 

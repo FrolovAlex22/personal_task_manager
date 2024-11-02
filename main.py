@@ -7,6 +7,7 @@ from fastapi.security import HTTPBearer
 # from app.db.database import create_model
 from app.core.config import settings
 from app.api.endpoints.tasks import router as task_router
+from app.api.endpoints.users import router as user_router
 from app.db.database import create_models, delete_models
 from app.db.models import Base
 
@@ -28,6 +29,7 @@ app = FastAPI(
 
 
 app.include_router(task_router)
+app.include_router(user_router)
 
 
 if __name__ == "__main__":
